@@ -1,0 +1,3 @@
+-r requirements.txt
+
+watchdog[watchmedo]==2.1.5
