@@ -2,7 +2,7 @@ import csv
 import uuid
 from io import StringIO
 from django.core.files.base import ContentFile
-from .models import CsvFile  # Replace with the actual import for your CsvFile model
+from .models import CsvFile
 
 
 def create_enriched_csv_file(original_csv_file_instance, enriched_csv_data):

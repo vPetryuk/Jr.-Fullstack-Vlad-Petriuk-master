@@ -70,15 +70,12 @@ class CsvFileViewSet(viewsets.ModelViewSet):
         # Enrich the CSV data
         enriched_csv_data = []
         for csv_row in csv_data:
-            # Find a matching entry in the external file data
             for external_row in external_file_data[0]:
                 if str(csv_row.get(selected_column)) == str(external_row.get(api_response_column)):
-                    # Merge the data to enrich the CSV row
                     enriched_row = {**csv_row, **external_row}
                     enriched_csv_data.append(enriched_row)
                     break
             else:
-                # If no match was found, still include the original CSV row
                 enriched_csv_data.append(csv_row)
 
         create_enriched_csv_file(csv_file_instance, enriched_csv_data)
